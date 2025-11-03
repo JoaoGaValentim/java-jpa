@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
+	<named-query name="getMoviesPointsBiggerThan">
+		<query>
+			select distinct m from Movie m 
+			join fetch m.actors
+			where m.points > :points
+		</query>
+	</named-query>
+	
+	<named-native-query name="getMoviesAverage" result-set-mapping="PointMovieMap">
+		<query>select avg(points) as average from movies</query>
+	</named-native-query>
+	
+	<sql-result-set-mapping name="PointMovieMap">
+		<constructor-result target-class="models.PointMovie">
+			<column name="average" class="java.lang.Double" />
+		</constructor-result>
+	</sql-result-set-mapping>
+</entity-mappings>

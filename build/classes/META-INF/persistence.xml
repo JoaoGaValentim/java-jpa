@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="java-jpa">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<mapping-file>META-INF/orm.xml</mapping-file>
+        
+        <class>models.basic.User</class>
+        <class>models.basic.Product</class>
+        <class>models.onetoone.Seat</class>
+        <class>models.onetoone.Client</class>
+        <class>models.Order</class>
+        <class>models.OrderItem</class>
+        <class>models.todo.Category</class>
+        <class>models.todo.CategoryTask</class>
+        <class>models.todo.Task</class>
+        <class>models.manytomany.Uncle</class>
+        <class>models.manytomany.Nephew</class>
+        <class>models.manytomany.Actor</class>
+        <class>models.manytomany.Movie</class>
+        <class>models.compositions.Supplier</class>
+        <class>models.compositions.Employer</class>
+        <class>models.compositions.Address</class>
+        <class>models.test.inh.People</class>
+        <class>models.test.inh.Login</class>
+        <class>models.test.inh.Galaxy</class>
+        <class>models.test.inh.Universe</class>
+		<class>models.test.inh.CelestialBody</class>
+		<class>models.test.inh.Planet</class>
+		<class>models.test.inh.Student</class>
+		<class>models.test.inh.SpecialStudent</class>
+        
+        <properties>
+            <property name="javax.persistence.jdbc.driver"
+                value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                value="jdbc:mysql://localhost/java_jpa?createDatabaseIfNotExist=true"/>
+            <property name="javax.persistence.jdbc.user"
+                value="root"/>
+            <property name="javax.persistence.jdbc.password"
+                value="123456"/>
+
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+	</persistence-unit>
+</persistence>
